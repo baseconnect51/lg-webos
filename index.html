@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="BaseConnect IPTV Player - LG webOS & Web">
+
+  <!-- iOS / Web meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="BaseConnect">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>BaseConnect</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- HLS.js for Live TV (.m3u8) playback on LG webOS HTML5 Video -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #061A17;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  </style>
+
+  <script>
+    // Bridge LG webOS Magic Remote Back button (keyCode 461) to standard Escape for Flutter
+    window.addEventListener('keydown', function(e) {
+      if (e.keyCode === 461 || e.key === 'GoBack' || e.code === 'BrowserBack') {
+        e.preventDefault();
+        e.stopPropagation();
+        var escDown = new KeyboardEvent('keydown', {
+          key: 'Escape',
+          code: 'Escape',
+          keyCode: 27,
+          which: 27,
+          bubbles: true,
+          cancelable: true
+        });
+        window.dispatchEvent(escDown);
+        document.dispatchEvent(escDown);
+      }
+    }, true);
+
+    window.addEventListener('keyup', function(e) {
+      if (e.keyCode === 461 || e.key === 'GoBack' || e.code === 'BrowserBack') {
+        e.preventDefault();
+        e.stopPropagation();
+        var escUp = new KeyboardEvent('keyup', {
+          key: 'Escape',
+          code: 'Escape',
+          keyCode: 27,
+          which: 27,
+          bubbles: true,
+          cancelable: true
+        });
+        window.dispatchEvent(escUp);
+        document.dispatchEvent(escUp);
+      }
+    }, true);
+  </script>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

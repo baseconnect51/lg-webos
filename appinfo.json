@@ -1,0 +1,19 @@
+{
+  "id": "com.baseconnect.app",
+  "version": "1.0.4",
+  "vendor": "BaseConnect",
+  "type": "web",
+  "main": "index.html",
+  "title": "BaseConnect",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "bgColor": "#061A17",
+  "iconColor": "#061A17",
+  "resolution": "1920x1080",
+  "transparent": false,
+  "handlesRelaunch": false,
+  "disableBackHistoryAPI": true,
+  "allowVideoCapture": false,
+  "allowAudioCapture": false
+}
+
